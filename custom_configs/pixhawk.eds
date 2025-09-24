@@ -1,0 +1,453 @@
+[DeviceInfo]
+VendorName=PX4 Development Team
+VendorNumber=0x00000100
+ProductName=Pixhawk Flight Controller
+ProductNumber=0x00000001
+RevisionNumber=0x00010000
+OrderCode=
+BaudRate_10=0
+BaudRate_20=0
+BaudRate_50=0
+BaudRate_125=1
+BaudRate_250=1
+BaudRate_500=1
+BaudRate_800=0
+BaudRate_1000=1
+SimpleBootUpMaster=0
+SimpleBootUpSlave=1
+Granularity=8
+DynamicChannelsSupported=0
+CompactPDO=0x00
+GroupMessaging=0
+NrOfRxPDO=2
+NrOfTxPDO=2
+LSS_Supported=0
+
+[DummyUsage]
+Dummy0001=0
+Dummy0002=0
+Dummy0003=0
+Dummy0004=0
+Dummy0005=1
+Dummy0006=1
+Dummy0007=1
+
+[MandatoryObjects]
+SupportedObjects=3
+1=0x1000
+2=0x1001
+3=0x1018
+
+[OptionalObjects]
+SupportedObjects=1
+1=0x1F84
+
+[ManufacturerObjects]
+SupportedObjects=1
+1=0x1F84
+
+[1000]
+ParameterName=Device type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+PDOMapping=0
+DefaultValue=0x00000000
+
+[1001]
+ParameterName=Error register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+PDOMapping=1
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=0x5
+
+[1018sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=4
+PDOMapping=0
+
+[1018sub1]
+ParameterName=Vendor ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000100
+PDOMapping=0
+
+[1018sub2]
+ParameterName=Product Code
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000001
+PDOMapping=0
+
+[1018sub3]
+ParameterName=Revision number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00010000
+PDOMapping=0
+
+[1018sub4]
+ParameterName=Serial number
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x12345678
+PDOMapping=0
+
+; Mirror device type in 0x1F84 as required by master checks
+[1F84]
+ParameterName=Device type identification
+ObjectType=0x09
+SubNumber=0x1
+
+[1F84sub0]
+ParameterName=Highest sub-index supported
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=1
+
+[1F84sub1]
+ParameterName=Device type mirror
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x00000000
+PDOMapping=0
+
+; IMU data objects
+[6000]
+ParameterName=IMU Roll Angle
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6001]
+ParameterName=IMU Pitch Angle
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6002]
+ParameterName=IMU Yaw Angle
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6003]
+ParameterName=IMU Angular Velocity X
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6004]
+ParameterName=IMU Angular Velocity Y
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6005]
+ParameterName=IMU Angular Velocity Z
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6006]
+ParameterName=IMU Linear Acceleration X
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6007]
+ParameterName=IMU Linear Acceleration Y
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+[6008]
+ParameterName=IMU Linear Acceleration Z
+ObjectType=0x7
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+DefaultValue=0
+
+; TPDO1 Parameters - Attitude data
+[1800]
+ParameterName=TPDO1 Parameters
+ObjectType=0x9
+SubNumber=0x6
+
+[1800sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1800sub1]
+ParameterName=COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x180
+PDOMapping=0
+
+[1800sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[1800sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1800sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=100
+PDOMapping=0
+
+; TPDO1 Mapping - Attitude (Roll, Pitch, Yaw)
+[1A00]
+ParameterName=TPDO1 Mapping
+ObjectType=0x9
+SubNumber=0x4
+
+[1A00sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=3
+PDOMapping=0
+
+[1A00sub1]
+ParameterName=Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60000010
+PDOMapping=0
+
+[1A00sub2]
+ParameterName=Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60010010
+PDOMapping=0
+
+[1A00sub3]
+ParameterName=Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60020010
+PDOMapping=0
+
+; TPDO2 Parameters - Position data
+[1801]
+ParameterName=TPDO2 Parameters
+ObjectType=0x9
+SubNumber=0x6
+
+[1801sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1801sub1]
+ParameterName=COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x280
+PDOMapping=0
+
+[1801sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[1801sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1801sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=100
+PDOMapping=0
+
+; TPDO2 Mapping - Angular Velocity (X, Y, Z)
+[1A01]
+ParameterName=TPDO2 Mapping
+ObjectType=0x9
+SubNumber=0x4
+
+[1A01sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=3
+PDOMapping=0
+
+[1A01sub1]
+ParameterName=Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60030010
+PDOMapping=0
+
+[1A01sub2]
+ParameterName=Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60040010
+PDOMapping=0
+
+[1A01sub3]
+ParameterName=Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60050010
+PDOMapping=0
+
+; TPDO3 Parameters - Linear acceleration data
+[1802]
+ParameterName=TPDO3 Parameters
+ObjectType=0x9
+SubNumber=0x6
+
+[1802sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=5
+PDOMapping=0
+
+[1802sub1]
+ParameterName=COB-ID
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x380
+PDOMapping=0
+
+[1802sub2]
+ParameterName=Transmission Type
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+PDOMapping=0
+
+[1802sub3]
+ParameterName=Inhibit Time
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=0
+PDOMapping=0
+
+[1802sub5]
+ParameterName=Event Timer
+ObjectType=0x7
+DataType=0x0006
+AccessType=rw
+DefaultValue=100
+PDOMapping=0
+
+; TPDO3 Mapping - Linear Acceleration (X, Y, Z)
+[1A02]
+ParameterName=TPDO3 Mapping
+ObjectType=0x9
+SubNumber=0x4
+
+[1A02sub0]
+ParameterName=Number of Entries
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=3
+PDOMapping=0
+
+[1A02sub1]
+ParameterName=Mapping Entry 1
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60060010
+PDOMapping=0
+
+[1A02sub2]
+ParameterName=Mapping Entry 2
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60070010
+PDOMapping=0
+
+[1A02sub3]
+ParameterName=Mapping Entry 3
+ObjectType=0x7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x60080010
+PDOMapping=0

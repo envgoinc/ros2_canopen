@@ -1,0 +1,17 @@
+options:
+  dcf_path: "/home/envgo/envgo/ros2_canopen/canopen_pixhawk_config"
+
+master:
+  node_id: 1
+  driver: "ros2_canopen::MasterDriver"
+  package: "canopen_master_driver"
+  # sync_period: 10000
+
+pixhawk:
+  node_id: 2
+  dcf: "simple.eds"   # for hardware; use "simple.eds" for sim
+  driver: "ros2_canopen::ProxyDriver"
+  package: "canopen_proxy_driver"
+  polling: true
+  period: 10
+  namespace: "/ros2canopen"

@@ -1,4 +1,7 @@
 # Not used for current ROS - CAN communication. May be used in future if switched to complete CANopen protocol. Right now we are using raw can message with CANopen can-id naming only.
+
+## Navigate to custom_configs/README.md for more instructions of how this repo works
+
 # ROS2 CANopen
 
 ## Status
